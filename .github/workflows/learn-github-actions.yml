@@ -8,17 +8,19 @@ jobs:
  compile-card:
   runs-on: ubuntu-latest
   steps: 
-   - name: Set up Git repository 
+  - name: Set up Git repository 
     uses: actions/checkout@v4 
-   - name: Compile Latex document 
-    uses: xu cheng/latex-action@v3 
+  - name: Compile Latex document 
+    uses: xu-cheng/latex-action@v3 
     with:
-    root_file: card.tex latexmk_use_xelatex: true 
-   - name: Upload PDF file 
+     root_file: card.tex 
+     latexmk_use_xelatex: true 
+  - name: Upload PDF file 
     uses: actions/upload-artifact@v3 
-    width: name: PDF 
-    path: card.pdf 
-   - name: Release 
+    with: 
+     name: PDF 
+     path: card.pdf 
+  - name: Release 
     uses: softprops/action-gh-release@v1 
     with: 
     files: card.pdf 
