@@ -1,18 +1,16 @@
 name: learn-github-actions 
-run-name: ${{ github.actor }} is learning GitHub Actions 
 on:
  push:
-  tags: 
-    - "*" 
+  tags: - "*" 
 jobs:
  compile-card:
-  runs-on: ubuntu-latest
+  runs-on: ubuntu-latest 
   steps: 
   - name: Set up Git repository 
     uses: actions/checkout@v4 
   - name: Compile Latex document 
     uses: xu-cheng/latex-action@v3 
-    with:
+    with: 
      root_file: card.tex 
      latexmk_use_xelatex: true 
   - name: Upload PDF file 
